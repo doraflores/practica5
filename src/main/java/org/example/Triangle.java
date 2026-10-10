@@ -1,12 +1,10 @@
 package org.example;
 
 import java.awt.*;
-import java.awt.Canvas;
 
 /**
  * A triangle that can be manipulated and that draws itself on a canvas.
- * 
- * @author  Michael Kölling and David J. Barnes
+ *
  * @version 2016.02.29
  */
 
@@ -177,7 +175,7 @@ public class Triangle
     private void draw()
     {
         if(isVisible) {
-            java.awt.Canvas canvas = java.awt.Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             int[] xpoints = { xPosition, xPosition + (width/2), xPosition - (width/2) };
             int[] ypoints = { yPosition, yPosition + height, yPosition + height };
             canvas.draw(this, color, new Polygon(xpoints, ypoints, 3));
@@ -191,8 +189,14 @@ public class Triangle
     private void erase()
     {
         if(isVisible) {
-            java.awt.Canvas canvas = Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             canvas.erase(this);
         }
+    }
+
+    // metodo agregado
+    public void setPosition(int x, int y){
+        xPosition = x;
+        yPosition = y;
     }
 }

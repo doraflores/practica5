@@ -1,12 +1,10 @@
 package org.example;
 
 import java.awt.*;
-import java.awt.Canvas;
 
 /**
  * A person that can be manipulated and that draws itself on a canvas.
- * 
- * @author  Michael Kölling and David J. Barnes
+ *
  * @version 2016.02.29
  */
 
@@ -182,7 +180,7 @@ public class Person
         int x = xPosition;
         int y = yPosition;
         if(isVisible) {
-            java.awt.Canvas canvas = java.awt.Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             int[] xpoints = { x-3, x-hw, x-hw, x-(int)(hw*0.2)-1, x-(int)(hw*0.2)-1, x-hw, 
                               x-hw+(int)(hw*0.4)+1, x, x+hw-(int)(hw*0.4)-1, x+hw, x+(int)(hw*0.2)+1, 
                               x+(int)(hw*0.2)+1, x+hw, x+hw, x+3, x+(int)(hw*0.6), 
@@ -202,8 +200,14 @@ public class Person
     private void erase()
     {
         if(isVisible) {
-            java.awt.Canvas canvas = Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             canvas.erase(this);
         }
+    }
+
+    // metodo agregado
+    public void setPosition(int x, int y){
+        xPosition = x;
+        yPosition = y;
     }
 }

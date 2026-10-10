@@ -2,17 +2,13 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
 
 /**
  * Canvas is a class to allow for simple graphical drawing on a canvas.
  * This is a modification of the general purpose Canvas, specially made for
- * the BlueJ "shapes" example. 
- *
- * @author: Bruce Quig
- * @author: Michael Kölling (mik)
+ * the BlueJ "shapes" example.
  *
  * @version 2016.02.29
  */
@@ -121,7 +117,7 @@ public class Canvas
 
     /**
      * Set the foreground color of the Canvas.
-     * @param  newColor   the new color for the foreground of the Canvas 
+     * @param  colorString   the new color for the foreground of the Canvas
      */
     public void setForegroundColor(String colorString)
     {
@@ -228,6 +224,17 @@ public class Canvas
             setForegroundColor(colorString);
             graphic.fill(shape);
         }
+    }
+
+    // Se agrego metodo
+    public void drawString(String texto, int x, int y)
+    {
+        graphic.setColor(Color.black);
+        graphic.setFont(new Font("Arial", Font.BOLD, 18));
+
+        graphic.drawString(texto, x, y);
+
+        canvas.repaint();
     }
 
 }

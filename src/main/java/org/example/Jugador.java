@@ -25,6 +25,7 @@ public class Jugador {
     public ArrayList<Carta> devolverCartas(int cantidad){
         ArrayList<Carta> cartasDevueltas = new ArrayList<>();
 
+        if(cantidad < 0) throw new IllegalArgumentException("Cantidad no válida"); // se agrego
         for (int i = 0; i < cantidad && !mano.isEmpty(); i++) {
             cartasDevueltas.add(mano.remove(0));
         }
@@ -39,13 +40,13 @@ public class Jugador {
             sb.append("[Sin cartas]");
         }else{
             for (Carta carta : mano){
-                sb.append("[").append(carta.toString()).append("] ");
+                sb.append(" ").append(carta.toString()).append(" "); // modificacion, borre []
             }
         }
         return sb.toString().trim();
     }
     //metodo para consultar la mano
     public ArrayList<Carta> getMano(){
-        return mano;
+        return new ArrayList<>(mano); // se modifico
     }
 }

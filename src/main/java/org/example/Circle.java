@@ -1,12 +1,11 @@
 package org.example;
 
-import java.awt.Canvas;
-import java.awt.geom.Ellipse2D;
+import java.awt.*;
+import java.awt.geom.*;
 
 /**
  * A circle that can be manipulated and that draws itself on a canvas.
- * 
- * @author  Michael Kölling and David J. Barnes
+ *
  * @version 2016.02.29
  */
 
@@ -173,7 +172,7 @@ public class Circle
     private void draw()
     {
         if(isVisible) {
-            java.awt.Canvas canvas = java.awt.Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             canvas.draw(this, color, new Ellipse2D.Double(xPosition, yPosition, 
                                                           diameter, diameter));
             canvas.wait(10);
@@ -186,8 +185,14 @@ public class Circle
     private void erase()
     {
         if(isVisible) {
-            java.awt.Canvas canvas = Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             canvas.erase(this);
         }
+    }
+
+    // metodo agregado
+    public void setPosition(int x, int y){
+        xPosition = x;
+        yPosition = y;
     }
 }

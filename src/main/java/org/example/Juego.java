@@ -60,15 +60,39 @@ public class Juego {
         System.out.println("\nBUSCANDO CARTA \"" + cartaBuscada + "\":");
         buscarCartaEnJugadores(cartaBuscada, jugador1, jugador2, jugador3);
 
+        // PROBANDO EL VISUALIZADOR DE LA PRÁCTICA 6
+        System.out.println("\nPROBANDO EL VISUALIZADOR GRÁFICO:");
+        if (!jugador1.getMano().isEmpty()) {
+            Carta primeraCartaAna = jugador1.getMano().get(0);
+            System.out.println("Visualizando la carta: " + primeraCartaAna);
 
-        /**
-         *
-         *
-         *
-         *
-         *
-         *
-         * **/
+            // Llamada requerida por la práctica
+            Visualizador.carta(primeraCartaAna, new Posicion(20, 40));
+        }
+
+
+            /**
+            Visualizador.carta(
+                    new Carta(1, Figura.CORAZONES),
+                    new Posicion(50, 50)
+            );
+
+            Visualizador.carta(
+                    new Carta(13, Figura.ESPADAS),
+                    new Posicion(200, 50)
+            );
+
+            Visualizador.carta(
+                    new Carta(10, Figura.DIAMANTES),
+                    new Posicion(350, 50)
+            );
+
+            Visualizador.carta(
+                    new Carta(11, Figura.TREBOLES),
+                    new Posicion(500, 50)
+            );
+
+            **/
 
     }
 

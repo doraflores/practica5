@@ -1,12 +1,10 @@
 package org.example;
 
 import java.awt.*;
-import java.awt.Canvas;
 
 /**
  * A square that can be manipulated and that draws itself on a canvas.
- * 
- * @author  Michael Kölling and David J. Barnes
+ *
  * @version 2016.02.29
  */
 
@@ -17,6 +15,8 @@ public class Square
     private int yPosition;
     private String color;
     private boolean isVisible;
+    private int ancho; // agregado
+    private int alto; // agregado
 
     /**
      * Create a new square at default position with default color.
@@ -27,6 +27,16 @@ public class Square
         xPosition = 310;
         yPosition = 120;
         color = "red";
+        isVisible = false;
+    }
+
+    // nuevo constructor (agregado)
+    public Square(int ancho, int alto, String color){
+        this.ancho = ancho;
+        this.alto = alto;
+        xPosition = 310;
+        yPosition = 120;
+        this.color = color;
         isVisible = false;
     }
 
@@ -174,9 +184,9 @@ public class Square
     private void draw()
     {
         if(isVisible) {
-            java.awt.Canvas canvas = java.awt.Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             canvas.draw(this, color,
-                        new Rectangle(xPosition, yPosition, size, size));
+                        new Rectangle(xPosition, yPosition, ancho, alto)); // modificado, borre size y pude ancho y alto
             canvas.wait(10);
         }
     }
@@ -187,8 +197,14 @@ public class Square
     private void erase()
     {
         if(isVisible) {
-            java.awt.Canvas canvas = Canvas.getCanvas();
+            Canvas canvas = Canvas.getCanvas();
             canvas.erase(this);
         }
+    }
+
+    // metodo agregado
+    public void setPosition(int x, int y){
+        xPosition = x;
+        yPosition = y;
     }
 }
